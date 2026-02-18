@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 48" fill="none">
+  <!-- Shield icon -->
+  <path d="M8 8C8 8 24 4 24 4C24 4 40 8 40 8C40 8 40 26 40 26C40 36 24 44 24 44C24 44 8 36 8 26V8Z" fill="#D00A2B"/>
+  <path d="M20 22L24 26L32 16" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Text -->
+  <text x="50" y="22" font-family="Roboto, sans-serif" font-weight="700" font-size="18" fill="#1b2b5f">Signaal</text>
+  <text x="50" y="40" font-family="Roboto, sans-serif" font-weight="700" font-size="18" fill="#D00A2B">Bewaking</text>
+</svg>

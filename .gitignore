@@ -1,0 +1,37 @@
+# WordPress core (download fresh)
+/wp-admin/
+/wp-includes/
+/wp-*.php
+/index.php
+/license.txt
+/readme.html
+/xmlrpc.php
+
+# Config (contains secrets)
+wp-config.php
+
+# Uploads (managed separately)
+/wp-content/uploads/
+
+# Plugins (install via WP-CLI)
+/wp-content/plugins/
+
+# Default themes
+/wp-content/themes/twentytwenty*/
+
+# Cache
+/wp-content/cache/
+/wp-content/advanced-cache.php
+/wp-content/wp-cache-config.php
+
+# System
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+
+# Build artifacts
+/wp-content/themes/signaalbewaking/node_modules/
+
+# Temp HTML files
+/*.html
