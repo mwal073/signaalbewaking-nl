@@ -1,43 +1,86 @@
 # SignaalBewaking.nl Rebuild Plan
 
+## Status: IN PROGRESS (2026-02-18)
+
+### Completed
+- [x] WordPress 6.9.1 install + MySQL DB (`signaalbewaking_tmp`)
+- [x] Custom block theme `signaalbewaking` (FSE, no page builders)
+- [x] theme.json v3 (colors, typography, layout, custom templates)
+- [x] Full CSS with CSS variables (navy #0A2C3D + red #D00A2B)
+- [x] Header + Footer template parts (nav, dropdown, mobile toggle)
+- [x] Templates: index, page, front-page, 404
+- [x] All 11 pages created (Home, Diensten, 3 service detail, Over ons, Contact, Support, Aanmelden, Privacy, AV)
+- [x] Hero images downloaded from old site (4 images)
+- [x] Real logo from old site (PNG)
+- [x] Plugins: Yoast SEO, CF7, WP Super Cache
+- [x] functions.php: Schema.org, nav walker, asset loading, cleanup
+- [x] GitHub repo: github.com/mwal073/signaalbewaking-nl
+- [x] Nginx preview on port 8088
+- [x] DB backup exported
+
+### TODO (prioriteit)
+1. **Pagina-content opschonen** — Alle pagina's consistent maken, hero's toevoegen, app-referenties verwijderen
+2. **Alle 11 diensten als losse pagina's** — Nu alleen Meldkamer/Alarm/Camera; nog 8 service pagina's nodig
+3. **Visuele polish** — Design op niveau smc-monitoring.com / particulieren.nvd.nl
+4. **Hero's full-width fixen** — CSS is toegevoegd, testen + verbeteren
+5. **Tekst-alignment** — Consistent uitlijning op alle pagina's
+6. **Contact Form 7 configureren** — Formulier op contactpagina
+7. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
+8. **WebP conversie** — Hero images + logo optimaliseren
+9. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
+10. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
+
+---
+
 ## 1. Stack
 
 ### Core
-- **WordPress 6.7+** (latest stable)
-- **Custom lightweight theme**: `signaalbewaking` (block theme, FSE-ready)
-- **Gutenberg** native blocks only (NO Elementor, NO page builders)
-- **PHP 8.4** (already on server)
+- **WordPress 6.9.1** (installed)
+- **Custom block theme**: `signaalbewaking` (FSE, no page builders)
+- **PHP 8.4** (on server)
 
-### Plugins (minimal — 4 total)
-| Plugin | Purpose | Alternative considered |
-|--------|---------|----------------------|
-| **Yoast SEO** | Meta, schema, sitemap, breadcrumbs | Rank Math (heavier UI) |
-| **WP Super Cache** | Page caching + gzip | LiteSpeed Cache (not on Nginx) |
-| **Contact Form 7** | Lightweight contact forms | Ninja Forms (heavier), WPForms (freemium bloat) |
-| **WebP Express** | Auto WebP conversion + serving | ShortPixel (SaaS dependency) |
+### Plugins (3 installed)
+| Plugin | Purpose | Status |
+|--------|---------|--------|
+| **Yoast SEO** | Meta, schema, sitemap | ✅ Installed |
+| **WP Super Cache** | Page caching | ✅ Installed |
+| **Contact Form 7** | Contact forms | ✅ Installed (nog configureren) |
 
-**Removed from current site**: Elementor (3 plugins), ITPlot theme, Ninja Forms, Revolution Slider, portfolio/case-study CPTs.
+**Removed**: Elementor (3 plugins), ITPlot theme, Ninja Forms, Revolution Slider, portfolio CPTs.
 
 ---
 
 ## 2. Information Architecture
 
-### Pages & URL Slugs
-| Page | Slug | Menu | Priority |
-|------|------|------|----------|
-| Home | `/` | ✓ | P0 |
-| Diensten (overview) | `/diensten/` | ✓ | P0 |
-| Meldkamerdiensten (PAC detail) | `/meldkamerdiensten/` | ✓ | P0 (SEO target) |
-| Alarmopvolging | `/alarmopvolging/` | submenu | P1 |
-| Cameratoezicht | `/cameratoezicht/` | submenu | P1 |
-| Over ons | `/over-ons/` | ✓ | P1 |
-| Contact | `/contact/` | ✓ | P0 |
-| Support | `/support/` | ✓ | P1 |
-| Aanmelden installateur | `/aanmelden/` | CTA button | P1 |
-| Privacy Policy | `/privacy/` | footer | P2 |
-| Algemene Voorwaarden | `/algemene-voorwaarden/` | footer | P2 |
+### Alle 11 Diensten (van live site /services/)
+| # | Dienst | Slug | Status |
+|---|--------|------|--------|
+| 1 | Alarmverwerking | `/alarmverwerking/` | TODO |
+| 2 | Fysieke Alarmopvolging | `/alarmopvolging/` | ✅ Pagina bestaat |
+| 3 | Persoonsalarmering | `/persoonsalarmering/` | TODO |
+| 4 | Alarmcentrale | `/alarmcentrale/` | TODO |
+| 5 | IP-Kiezer en SIM-kaarten | `/ip-kiezer/` | TODO |
+| 6 | Teleservice | `/teleservice/` | TODO |
+| 7 | Remote Facility Management | `/remote-facility-management/` | TODO |
+| 8 | Remote Open- en Sluitbegeleiding | `/open-sluitbegeleiding/` | TODO |
+| 9 | Remote Toegangsbeheer | `/toegangsbeheer/` | TODO |
+| 10 | Remote Camera Surveillance | `/cameratoezicht/` | ✅ Pagina bestaat |
+| 11 | Live View | `/live-view/` | TODO |
 
-### Navigation Structure
+### Overige Pagina's
+| Page | Slug | Status |
+|------|------|--------|
+| Home | `/` | ✅ Needs polish |
+| Diensten overview | `/diensten/` | ✅ Alle 11 diensten listed |
+| Meldkamerdiensten | `/meldkamerdiensten/` | ✅ Needs polish |
+| Over ons | `/over-ons/` | ✅ Needs polish |
+| Contact | `/contact/` | ✅ Needs CF7 form |
+| Support | `/support/` | ✅ Needs polish |
+| Aanmelden | `/aanmelden/` | ✅ Needs polish |
+| Privacy | `/privacy/` | ✅ OK |
+| Algemene Voorwaarden | `/algemene-voorwaarden/` | ✅ OK |
+
+### Navigation
 ```
 [Logo] Home | Diensten ▾ | Over ons | Support | Contact | [CTA: Aanmelden]
                 ├── Meldkamerdiensten
@@ -45,141 +88,111 @@
                 └── Cameratoezicht
 ```
 
-### Internal Linking Plan
-- Home → Diensten overview → Individual service pages
-- Every service page → Contact CTA
-- Meldkamerdiensten → related services (alarmopvolging, cameratoezicht)
-- Footer: all pages + legal links
+---
+
+## 3. Design System
+
+### Colors (theme.json + CSS variables)
+| Naam | Hex | Gebruik |
+|------|-----|---------|
+| Brand Red | `#D00A2B` | CTA's, accenten, links |
+| Dark Navy | `#0A2C3D` | Headings, hero bg, header |
+| Brand Blue | `#6EC1E4` | Secondary accent |
+| Brand Green | `#61CE70` | Success states |
+| Text Dark | `#333333` | Body text |
+| Light Gray | `#f4f4f4` | Section backgrounds |
+
+### Typography
+- **Font**: Roboto (Google Fonts, self-hosted woff2)
+- **Sizes**: clamp() responsive (small 0.875rem → xx-large clamp(2rem, 3.2vw, 3.2rem))
+- **Line-height**: 1.65 body, 1.2 headings
+
+### Hero Sections
+- Full-viewport met gradient overlay
+- Hero image + text overlay bottom-left
+- Pill CTA button (red, hover → white)
+- Elke pagina een hero (short variant voor subpagina's)
+
+### Referentie Concurrenten
+- smc-monitoring.com/nl-nl/
+- particulieren.nvd.nl/alarmcentrale/
 
 ---
 
-## 3. Hero Section (Schipper-inspired)
+## 4. Technical Details
 
-### Behavior Spec
-Inspired by schippersecurity.nl hero:
-- **Full-viewport hero** with `min-height: clamp(56vh, 64vw, 78vh)`
-- **Background image** with gradient overlay: `linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.58))`
-- **Text bottom-left**: max-width `min(52ch, 70%)`, large responsive type `clamp(1.6rem, 2.4vw, 2.6rem)`
-- **CTA button**: brand blue (#6EC1E4) pill, hover → white
-- **Mobile**: full-width, text stacked, reduced padding, image repositioned via `object-position`
-- **No carousel/slider** (better CWV than current Revolution Slider)
-- **Single static hero** per page (faster LCP)
+### Server
+- VPS: 153.92.223.138 (Hostinger)
+- Preview: http://153.92.223.138:8088/
+- MySQL: `signaalbewaking_tmp` database
+- Nginx config: `/etc/nginx/sites-available/sb-preview`
 
-### SignaalBewaking adaptation
-- Brand blue (#6EC1E4) as accent instead of Schipper orange
-- Hero image: security/monitoring themed placeholder
-- Headline: "Uw Kiwa-gecertificeerde meldkamer"
-- Subtitle: "24/7 alarmverwerking volgens NEN-50518"
-- CTA: "Bekijk onze diensten →"
+### Local Build
+- Path: `/root/tmp/signaalbewaking/`
+- Theme: `/root/tmp/signaalbewaking/wp-content/themes/signaalbewaking/`
 
----
+### Live Site (old)
+- Domain: signaalbewaking.nl (Hostinger shared hosting)
+- SSH: u762023236@82.198.227.43:65002
+- Stack: WordPress + Elementor + ITPlot theme
 
-## 4. Performance Plan
-
-### Image Strategy
-- All images served as WebP (WebP Express auto-conversion)
-- Responsive `srcset` via WordPress native
-- Hero image: preloaded via `<link rel="preload">`
-- Lazy loading on all below-fold images (native `loading="lazy"`)
-
-### CSS/JS Strategy
-- **No external CSS frameworks** — custom theme CSS only (~15KB)
-- **Critical CSS** inlined in `<head>` for above-fold content
-- Font: system font stack OR self-hosted Roboto (preloaded, `font-display: swap`)
-- Minimal JS: only for mobile menu toggle + smooth scroll (~2KB)
-- No jQuery dependency
-
-### Caching
-- WP Super Cache: full-page cache
-- Nginx: `Cache-Control` headers for static assets (1 year)
-- Nginx gzip compression enabled
-
-### CWV Targets
-- **LCP** < 2.5s: preloaded hero image, minimal render-blocking resources
-- **CLS** < 0.1: explicit image dimensions, no layout shifts from fonts/ads
-- **INP** < 200ms: minimal JS, no heavy event handlers
+### GitHub
+- Repo: github.com/mwal073/signaalbewaking-nl
+- Only theme files + content-export tracked (WP core in .gitignore)
 
 ---
 
-## 5. SEO Plan
+## 5. Deployment Plan (TODO)
 
-### Meta Titles & Descriptions
-| Page | Title | Description |
-|------|-------|-------------|
-| Home | SignaalBewaking — Kiwa-gecertificeerde Meldkamerdiensten | 24/7 alarmverwerking, fysieke alarmopvolging en cameratoezicht. NEN-50518 gecertificeerd vanuit Veenendaal. |
-| Meldkamerdiensten | Meldkamerdiensten — PAC Alarmcentrale \| SignaalBewaking | Professionele particuliere alarmcentrale (PAC). Alarmverwerking, opvolging, persoonsalarmering en remote monitoring. Kiwa gecertificeerd. |
-| Alarmopvolging | Fysieke Alarmopvolging — 24/7 Response \| SignaalBewaking | Snelle alarmopvolging door gecertificeerde teams. Verificatie ter plaatse bij inbraak, brand en overval. Landelijke dekking. |
-| Cameratoezicht | Remote Cameratoezicht — Live Monitoring \| SignaalBewaking | Professioneel cameratoezicht op afstand. Live meekijken, beeldverificatie en doormelding naar hulpdiensten. |
-| Diensten | Beveiligingsdiensten Overzicht \| SignaalBewaking | Compleet overzicht van onze meldkamerdiensten: alarmverwerking, opvolging, cameratoezicht, teleservice en meer. |
-| Over ons | Over SignaalBewaking — Uw Betrouwbare Meldkamer | Leer meer over SignaalBewaking: Kiwa-gecertificeerd, NEN-50518 compliant, gevestigd in Veenendaal. |
-| Contact | Contact — SignaalBewaking Veenendaal | Neem contact op met SignaalBewaking. Vendelier 71, 3905 PD Veenendaal. Tel: 088-1199911. |
+### Option A: Same VPS (153.92.223.138)
+1. DNS A-record signaalbewaking.nl → 153.92.223.138
+2. Nginx vhost voor signaalbewaking.nl (port 80/443)
+3. SSL via Let's Encrypt
+4. Kopie DB + uploads naar productie pad
 
-### Heading Structure (per page)
-- Single `<h1>` per page (unique, keyword-rich)
-- `<h2>` for main sections
-- `<h3>` for sub-sections/features
-- No heading skips
+### Option B: Hostinger (bestaand)
+1. Backup huidige Hostinger site
+2. Export DB + theme + uploads
+3. Import op Hostinger
+4. Geen DNS wijziging nodig
 
-### Schema Markup
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "SignaalBewaking",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Vendelier 71",
-    "postalCode": "3905 PD",
-    "addressLocality": "Veenendaal",
-    "addressCountry": "NL"
-  },
-  "telephone": "+31881199911",
-  "email": "info@signaalbewaking.nl",
-  "url": "https://signaalbewaking.nl"
-}
+### 301 Redirects (kritiek voor SEO)
 ```
-Plus `Service` schema on service pages.
-
-### Technical SEO
-- XML sitemap via Yoast
-- Clean permalink structure: `/%postname%/`
-- Canonical URLs on all pages
-- `robots.txt` allowing all (except wp-admin)
-- Open Graph + Twitter Card meta via Yoast
-- Breadcrumbs via Yoast
+/services/ → /diensten/
+/services/alarmverwerking/ → /alarmverwerking/  (etc.)
+/case-studies/ → /over-ons/
+/portfolio/ → /diensten/
+```
 
 ---
 
-## 6. Expanded PAC Service Content
-
-### Meldkamerdiensten (Main SEO page)
-Structured sections:
-1. **Wat is een PAC?** — Uitleg particuliere alarmcentrale
-2. **Onze meldkamerdiensten** — Grid van 6 kernservices
-3. **Hoe werkt het?** — 3-stappen proces (Aansluiting → Monitoring → Response)
-4. **Certificering** — NEN-50518, Kiwa, kwaliteitswaarborgen
-5. **Voor wie?** — Bedrijven, particulieren, zorginstellingen
-6. **FAQ** — 6-8 veelgestelde vragen over meldkamerdiensten
-7. **CTA** — Contact / offerte aanvragen
-
-### Individual service pages
-Each with:
-- Hero + intro paragraph
-- Hoe werkt het (process)
-- Voordelen (benefits list)
-- Technische specificaties
-- FAQ block (3-5 questions)
-- CTA naar contact
-
----
-
-## 7. Implementation Order
-1. WordPress install + DB setup
-2. Custom theme scaffold (theme.json, templates, styles)
-3. Hero component (CSS-only, responsive)
-4. Page templates (home, diensten, single-service, contact, generic)
-5. Content creation (all pages with expanded copy)
-6. Plugin install + configuration (Yoast, Cache, CF7, WebP Express)
-7. Schema markup injection
-8. Performance optimization (critical CSS, preload, cache)
-9. Git init + push to GitHub
+## 6. File Structure
+```
+signaalbewaking/
+├── PLAN.md
+├── .gitignore
+├── content-export/          ← HTML export van alle pagina's
+│   ├── home.html
+│   ├── diensten.html
+│   ├── meldkamerdiensten.html
+│   └── ...
+├── wp-config.php            (gitignored)
+├── wp-content/
+│   └── themes/
+│       └── signaalbewaking/
+│           ├── theme.json
+│           ├── style.css
+│           ├── functions.php
+│           ├── assets/
+│           │   ├── css/main.css
+│           │   ├── js/main.js
+│           │   └── images/ (logo, heroes)
+│           ├── parts/
+│           │   ├── header.html
+│           │   └── footer.html
+│           └── templates/
+│               ├── index.html
+│               ├── page.html
+│               ├── front-page.html
+│               └── 404.html
+```
