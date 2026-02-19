@@ -654,11 +654,19 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
     background: var(--sb-white); padding: 1.5rem;
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     overflow-y: auto; z-index: 999;
-    animation: fadeIn .2s ease;
+    animation: slideInMobile .25s var(--sb-ease-out);
   }
-  .sb-nav--open .sb-nav-list { flex-direction: column; width: 100%; }
-  .sb-nav--open .sb-nav-link { padding: 0.8rem 0; font-size: 1.05rem; }
+  @keyframes slideInMobile {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .sb-nav--open .sb-nav-list { flex-direction: column; width: 100%; gap: 0; }
+  .sb-nav--open .sb-nav-link {
+    padding: 0.9rem 0; font-size: 1.1rem; font-weight: 600;
+    border-bottom: 1px solid var(--sb-border);
+  }
   .sb-nav--open .sb-nav-link::after { display: none; }
+  .sb-nav--open .sb-chevron { transition: transform .25s; }
   .sb-nav--open .sb-dropdown {
     position: static; opacity: 1; visibility: visible; transform: none;
     box-shadow: none; padding-left: 1rem; border: none;
@@ -777,12 +785,171 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
   .sb-blog-wrap .wp-block-post-template { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Tablet: 2-column service cards */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .sb-diensten-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .sb-inno-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+  .sb-apps-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+
 @media (max-width: 480px) {
   .sb-usp-bar { flex-direction: column; align-items: center; gap: 0.75rem; padding: 1rem; }
   .sb-hero { padding: 2rem 1rem; }
   .sb-hero__actions { flex-direction: column; }
   .sb-hero__actions .sb-btn { width: 100%; justify-content: center; }
   .sb-stats { grid-template-columns: 1fr; }
+  .sb-cert-bar { gap: 1rem; }
+  .sb-cert-badge { min-width: 100px; padding: 0.75rem 1rem; }
+}
+
+/* Mobile: Stack hero flex layout, stats, innovatie, apps */
+@media (max-width: 768px) {
+  /* Hero flex container */
+  .sb-hero-flex { flex-direction: column !important; }
+  .sb-hero-flex > div:first-child { max-width: 100% !important; }
+  .sb-hero-stats-panel { min-width: unset !important; }
+
+  /* Stats 4-col → 2-col */
+  .sb-stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+  /* Innovatie 2-col → 1-col */
+  .sb-inno-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+  /* Diensten grid → 1 col */
+  .sb-diensten-grid { grid-template-columns: 1fr !important; }
+
+  /* Apps 3-col → 1-col */
+  .sb-apps-grid { grid-template-columns: 1fr !important; }
+
+  /* Testimonials → 1 col */
+  .sb-quotes-grid { grid-template-columns: 1fr !important; }
+
+  /* Why cards → 1 col */
+  .sb-why-grid { grid-template-columns: 1fr !important; }
+}
+
+/* --- Homepage Inline Override Helpers --- */
+/* These target inline-styled elements on the homepage (wp:html blocks) */
+
+/* Service card links on homepage — add hover lift */
+.sb-dienst-card {
+  text-decoration: none; display: block;
+  background: var(--sb-white); border-radius: var(--sb-radius);
+  overflow: hidden; box-shadow: var(--sb-shadow);
+  border: 1px solid var(--sb-border);
+  transition: transform .3s var(--sb-ease-out), box-shadow .3s var(--sb-ease-out), border-color .3s;
+}
+.sb-dienst-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--sb-shadow-lg);
+  border-color: rgba(208,10,43,0.2);
+}
+
+/* Waarom-kaarten hover */
+.sb-why-card {
+  transition: transform .3s var(--sb-ease-out), box-shadow .3s var(--sb-ease-out);
+}
+.sb-why-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(27,43,95,0.1) !important;
+}
+
+/* Innovatie stat cards */
+.sb-inno-stat {
+  transition: transform .3s var(--sb-ease-out), box-shadow .3s var(--sb-ease-out);
+}
+.sb-inno-stat:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 36px rgba(27,43,95,0.12) !important;
+}
+
+/* Testimonial cards */
+.sb-quote-card {
+  transition: transform .3s var(--sb-ease-out), box-shadow .3s var(--sb-ease-out);
+}
+.sb-quote-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(27,43,95,0.08) !important;
+}
+
+/* Platform app cards */
+.sb-app-card {
+  transition: transform .3s var(--sb-ease-out), box-shadow .3s var(--sb-ease-out);
+}
+.sb-app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+}
+
+/* App store buttons hover */
+.sb-app-btn {
+  transition: all .2s var(--sb-ease-out) !important;
+}
+.sb-app-btn:hover {
+  background: var(--sb-red) !important;
+  transform: translateY(-1px);
+}
+
+/* CTA button hover improvements for inline-styled buttons */
+.sb-cta-white:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+.sb-cta-ghost:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.7) !important;
+  transform: translateY(-2px);
+}
+
+/* --- Certification Logos Bar --- */
+.sb-cert-bar {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+  gap: 2.5rem; padding: 2rem 0;
+}
+.sb-cert-badge {
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  padding: 1rem 1.5rem; background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1); border-radius: 12px;
+  transition: var(--sb-transition); min-width: 120px;
+}
+.sb-cert-badge:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+.sb-cert-badge__code {
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: rgba(255,255,255,0.5);
+}
+.sb-cert-badge__name {
+  font-size: 0.85rem; font-weight: 600; color: #fff; text-align: center;
+}
+
+/* --- Animated Number Counter --- */
+.sb-counter {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Focus States (accessibility) --- */
+.sb-btn:focus-visible,
+.sb-nav-link:focus-visible,
+.sb-nav-cta:focus-visible {
+  outline: 2px solid var(--sb-red);
+  outline-offset: 3px;
+}
+
+/* --- Skip to Content (accessibility) --- */
+.sb-skip-link {
+  position: absolute; top: -100px; left: 0; z-index: 9999;
+  background: var(--sb-red); color: #fff;
+  padding: 0.75rem 1.5rem; font-weight: 600;
+  transition: top .2s;
+}
+.sb-skip-link:focus { top: 0; }
+
+/* --- Smooth image loading --- */
+.sb-hero__bg {
+  transition: opacity .5s var(--sb-ease-out);
 }
 
 /* --- Contact Form 7 Styling --- */
