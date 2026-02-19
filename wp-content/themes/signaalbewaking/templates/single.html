@@ -4,21 +4,18 @@
 <main class="wp-block-group">
 
 <!-- wp:html -->
-<section class="sb-hero sb-hero--short" style="background: linear-gradient(135deg, #1b2b5f 0%, #0f1a3a 100%); padding: 50px 0; text-align: center; color: #fff;">
-  <div style="max-width: 800px; margin: 0 auto; padding: 0 20px;">
+<section class="sb-hero" style="min-height:45vh;align-items:center;background:#0d1a3a;">
+  <div class="sb-hero__bg" style="background-image:url('/wp-content/themes/signaalbewaking/assets/images/heroes/pac-beveiliging.jpg');"></div>
+  <div style="max-width:800px;margin:0 auto;width:100%;position:relative;z-index:1;text-align:center;">
 <!-- /wp:html -->
 
-<!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.08em"},"color":{"text":"#D00A2B"}}} /-->
+<!-- wp:post-terms {"term":"category","textAlign":"center","style":{"typography":{"fontSize":"0.85rem","fontWeight":"600","textTransform":"uppercase","letterSpacing":"0.08em"},"color":{"text":"#D00A2B"}}} /-->
 
-<!-- wp:post-title {"level":1,"textAlign":"center","style":{"typography":{"fontSize":"clamp(1.8rem,3vw,2.6rem)","fontWeight":"800","lineHeight":"1.2"},"color":{"text":"#ffffff"},"spacing":{"margin":{"top":"12px","bottom":"12px"}}}} /-->
+<!-- wp:post-title {"level":1,"textAlign":"center","style":{"typography":{"fontSize":"clamp(1.8rem,3vw,2.6rem)","fontWeight":"800","lineHeight":"1.2"},"color":{"text":"#ffffff"},"spacing":{"margin":{"top":"12px","bottom":"16px"}}}} /-->
 
 <!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"16px"}}} -->
 <div class="wp-block-group">
   <!-- wp:post-date {"style":{"typography":{"fontSize":"0.9rem"},"color":{"text":"rgba(255,255,255,0.7)"}}} /-->
-  <!-- wp:paragraph {"style":{"typography":{"fontSize":"0.9rem"},"color":{"text":"rgba(255,255,255,0.5)"}}} -->
-  <p>·</p>
-  <!-- /wp:paragraph -->
-  <!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"0.9rem"},"color":{"text":"rgba(255,255,255,0.7)"}}} /-->
 </div>
 <!-- /wp:group -->
 
@@ -38,11 +35,24 @@
 <!-- wp:html -->
   <div style="margin-top: 60px; padding-top: 30px; border-top: 1px solid #eee;">
     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
-      <a href="/nieuws/" style="color: #D00A2B; font-weight: 600; text-decoration: none;">&larr; Terug naar overzicht</a>
+      <a href="/nieuws/" style="color: #D00A2B; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D00A2B" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Terug naar overzicht
+      </a>
       <a href="/contact/" class="sb-btn" style="display: inline-block; background: #D00A2B; color: #fff; padding: 12px 28px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none;">Neem contact op</a>
     </div>
   </div>
 </article>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section style="padding: 60px 0; background: #f8f9fb;">
+  <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+    <h2 style="color: #1b2b5f; font-size: 1.5rem; font-weight: 700; margin-bottom: 12px;">Meer lezen?</h2>
+    <p style="color: #666; margin-bottom: 24px;">Bekijk onze andere artikelen en blijf op de hoogte van het laatste nieuws.</p>
+    <a href="/nieuws/" class="sb-btn" style="display: inline-block; background: #1b2b5f; color: #fff; padding: 12px 28px; border-radius: 8px; font-weight: 600; text-decoration: none;">Bekijk alle artikelen &rarr;</a>
+  </div>
+</section>
 <!-- /wp:html -->
 
 </main>

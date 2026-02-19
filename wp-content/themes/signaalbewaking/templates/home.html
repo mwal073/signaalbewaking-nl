@@ -4,18 +4,38 @@
 <main class="wp-block-group">
 
 <!-- wp:html -->
-<section class="sb-hero sb-hero--short" style="background: linear-gradient(135deg, #1b2b5f 0%, #0f1a3a 100%); padding: 60px 0; text-align: center; color: #fff;">
-  <div style="max-width: 900px; margin: 0 auto; padding: 0 20px;">
-    <p style="font-size: 0.95rem; text-transform: uppercase; letter-spacing: 2px; color: #D00A2B; font-weight: 600; margin-bottom: 12px;">Kenniscentrum</p>
-    <h1 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 16px; color: #fff;">Nieuws &amp; Inzichten</h1>
-    <p style="font-size: 1.15rem; line-height: 1.7; opacity: 0.9; max-width: 650px; margin: 0 auto;">Het laatste nieuws over meldkamerdiensten, beveiligingstechnologie en trends in de beveiligingsbranche.</p>
+<section class="sb-hero" style="min-height:60vh;align-items:center;background:#0d1a3a;">
+  <div class="sb-hero__bg" style="background-image:url('/wp-content/themes/signaalbewaking/assets/images/heroes/pac-beveiliging.jpg');"></div>
+  <div style="max-width:1140px;margin:0 auto;width:100%;display:flex;align-items:center;flex-wrap:wrap;gap:2rem;position:relative;z-index:1;">
+    <div class="sb-hero__content" style="max-width:700px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(208,10,43,0.15);border:1px solid rgba(208,10,43,0.3);border-radius:9999px;padding:6px 16px;margin-bottom:1.5rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D00A2B" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="font-size:0.8rem;font-weight:600;color:#D00A2B;text-transform:uppercase;letter-spacing:0.08em;">Kenniscentrum</span>
+      </div>
+      <h1 style="font-size:clamp(2rem,3.5vw,3rem);font-weight:800;margin-bottom:1rem;color:#fff;line-height:1.2;">Nieuws &amp; Inzichten</h1>
+      <p style="font-size:clamp(1rem,1.5vw,1.2rem);line-height:1.7;margin-bottom:2rem;color:rgba(255,255,255,0.9);">Het laatste nieuws over meldkamerdiensten, beveiligingstechnologie en innovaties in de beveiligingsbranche.</p>
+    </div>
   </div>
 </section>
 <!-- /wp:html -->
 
 <!-- wp:html -->
-<section style="padding: 60px 0; max-width: 1100px; margin: 0 auto;">
-  <div class="sb-blog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; padding: 0 20px;">
+<section style="padding: 60px 0; background: #f8f9fb;">
+  <div style="max-width: 1140px; margin: 0 auto; padding: 0 20px;">
+
+    <!-- Category Filter Pills -->
+    <div class="sb-cat-filter">
+      <a href="/nieuws/" class="sb-cat-pill sb-cat-pill--active">Alles</a>
+      <a href="/category/nieuws/" class="sb-cat-pill">Nieuws</a>
+      <a href="/category/meldkamerdiensten/" class="sb-cat-pill">Meldkamerdiensten</a>
+      <a href="/category/alarmtechniek/" class="sb-cat-pill">Alarmtechniek</a>
+      <a href="/category/wetgeving-certificering/" class="sb-cat-pill">Wetgeving &amp; Certificering</a>
+      <a href="/category/veiligheid-tips/" class="sb-cat-pill">Veiligheid &amp; Tips</a>
+    </div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+    <div class="sb-blog-wrap">
 <!-- /wp:html -->
 
 <!-- wp:query {"queryId":1,"query":{"perPage":12,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","inherit":true}} -->
@@ -63,6 +83,20 @@
 <!-- /wp:query -->
 
 <!-- wp:html -->
+    </div>
+  </div>
+</section>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<section style="padding: 80px 0; background: linear-gradient(135deg, #1b2b5f, #2d3f7a);">
+  <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+    <h2 style="color: #fff; font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 800; margin-bottom: 16px;">Wilt u op de hoogte blijven?</h2>
+    <p style="color: rgba(255,255,255,0.8); font-size: 1.1rem; line-height: 1.7; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">Heeft u vragen over onze meldkamerdiensten of wilt u meer weten over innovaties in de beveiligingsbranche? Neem vrijblijvend contact met ons op.</p>
+    <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+      <a href="/contact/" class="sb-btn sb-btn--primary" style="font-size: 1rem; padding: 14px 32px;">Neem contact op &rarr;</a>
+      <a href="/aanmelden/" class="sb-btn sb-btn--outline" style="border-color: rgba(255,255,255,0.4); color: #fff; font-size: 1rem; padding: 14px 32px;">Aanmelden als installateur</a>
+    </div>
   </div>
 </section>
 <!-- /wp:html -->

@@ -5,7 +5,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'SB_VERSION', '1.0.0' );
+define( 'SB_VERSION', '2.1.0' );
 define( 'SB_DIR', get_template_directory() );
 define( 'SB_URI', get_template_directory_uri() );
 

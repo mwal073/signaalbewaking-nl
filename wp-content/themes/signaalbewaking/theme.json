@@ -77,9 +77,10 @@
       "lineHeight": "1.65"
     },
     "spacing": {
+      "blockGap": "0px",
       "padding": {
-        "left": "clamp(1rem, 3vw, 2rem)",
-        "right": "clamp(1rem, 3vw, 2rem)"
+        "left": "0px",
+        "right": "0px"
       }
     },
     "elements": {
