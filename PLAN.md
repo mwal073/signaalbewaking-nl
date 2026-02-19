@@ -29,18 +29,34 @@
 - [x] Support FAQ gecorrigeerd (geen valse claims over remote diagnostiek)
 - [x] /voorwaarden-condities/ pagina aangemaakt (WP ID 36)
 - [x] Footer: link naar Voorwaarden & Condities + kantoor/meldkamer openingstijden
+- [x] 9 dienstpagina's professioneel herschreven (drone-beveiliging, certificeringen, etc.)
+- [x] Header nav mega-dropdown met alle diensten gegroepeerd (Meldkamer, Opvolging & Toezicht, Remote Services, Innovatie)
+- [x] Alle 20+ pagina's responsive CSS (inline grid overrides via attribute selectors)
+- [x] **Mobiel menu volledig werkend** (v2.1.1):
+  - Hamburger button: zichtbaar, 44x44px tap target, border + border-radius
+  - Menu overlay: full-screen wit, height:calc(100vh-64px) (fix voor backdrop-filter containing block)
+  - Diensten dropdown: categorieën met strong/small stacking
+  - Nav-list: align-items:stretch (fix voor desktop align-items:center overerving)
+- [x] **Responsive layout fixes** (v2.1.1):
+  - Sections: width:100% i.p.v. 100vw op mobile (scrollbar width bug)
+  - Inner containers: max-width:100% + horizontale padding
+  - Hero: padding, font-size clamp, word-wrap
+  - html: overflow-x:hidden
+  - Post content/wp-site-blocks: max-width:100% + overflow-x:hidden
+- [x] Alle 15+ pagina's gevalideerd op 375px viewport (Puppeteer)
 
 ### VOLGENDE SESSIE (prioriteit)
 1. ~~**9 ontbrekende dienst-pagina's**~~ ✅ DONE
 2. ~~**Contact Form 7 configureren**~~ ✅ DONE
-3. **Alle pagina-content professioneel herschrijven** — Bestaande 3 dienstpagina's (meldkamerdiensten, alarmopvolging, cameratoezicht) + over-ons + support
-4. **Design op competitor-niveau** — Referentie: smc-monitoring.com, particulieren.nvd.nl — hero's, spacing, beeldmateriaal, micro-animaties
-5. **Nieuws/blog sectie** — Categorieen aanmaken, 3-5 initiële SEO-artikelen, nav-integratie
-6. **Header nav uitbreiden** — Diensten dropdown met alle 11 diensten (of gegroepeerd)
-7. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
-8. **WebP conversie** — Hero images + logo optimaliseren
-9. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
-10. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
+3. ~~**Header nav uitbreiden**~~ ✅ DONE (mega dropdown)
+4. ~~**Mobiel menu + responsive issues**~~ ✅ DONE (v2.1.1)
+5. **Alle pagina-content professioneel herschrijven** — over-ons, support, contact nog nalopen
+6. **Design op competitor-niveau** — Referentie: smc-monitoring.com, particulieren.nvd.nl — hero's, spacing, beeldmateriaal, micro-animaties
+7. **Nieuws/blog sectie** — Categorieen aanmaken, 3-5 initiële SEO-artikelen, nav-integratie
+8. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
+9. **WebP conversie** — Hero images + logo optimaliseren
+10. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
+11. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
 
 ---
 
