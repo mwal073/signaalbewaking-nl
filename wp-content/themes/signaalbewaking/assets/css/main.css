@@ -5,7 +5,7 @@
 
 /* --- Reset & Base --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 body { font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #333; line-height: 1.65; background: #fff; overflow-x: hidden; }
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; transition: color .2s; }
@@ -218,8 +218,14 @@ main.wp-block-group > .wp-block-query { max-width: none !important; margin-left:
 }
 
 /* Mobile toggle */
-.sb-menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-.sb-menu-toggle svg { width: 28px; height: 28px; stroke: var(--sb-navy); stroke-width: 2; }
+.sb-menu-toggle {
+  display: none; background: none; border: 1px solid var(--sb-border);
+  border-radius: 8px; cursor: pointer; padding: 6px;
+  width: 44px; height: 44px;
+  align-items: center; justify-content: center;
+}
+.sb-menu-toggle:active { background: var(--sb-gray-bg); }
+.sb-menu-toggle svg { width: 24px; height: 24px; stroke: var(--sb-navy); stroke-width: 2.5; }
 
 /* --- Hero Section --- */
 .sb-hero {
@@ -649,8 +655,9 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
 
   .sb-nav { display: none !important; }
   .sb-nav--open {
-    display: flex !important; flex-direction: column;
-    position: fixed; top: 64px; left: 0; right: 0; bottom: 0;
+    display: flex !important; flex-direction: column; align-items: stretch;
+    position: fixed; top: 64px; left: 0; right: 0;
+    width: 100vw; height: calc(100vh - 64px); /* explicit — backdrop-filter on header breaks bottom:0 containing block */
     background: var(--sb-white); padding: 1.5rem;
     box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     overflow-y: auto; z-index: 999;
@@ -660,10 +667,10 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .sb-nav--open .sb-nav-list { flex-direction: column; width: 100%; gap: 0; }
+  .sb-nav--open .sb-nav-list { flex-direction: column; width: 100%; gap: 0; text-align: left; align-items: stretch; }
   .sb-nav--open .sb-nav-link {
     padding: 0.9rem 0; font-size: 1.1rem; font-weight: 600;
-    border-bottom: 1px solid var(--sb-border);
+    border-bottom: 1px solid var(--sb-border); justify-content: flex-start;
   }
   .sb-nav--open .sb-nav-link::after { display: none; }
   .sb-nav--open .sb-chevron { transition: transform .25s; }
@@ -672,21 +679,104 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
     box-shadow: none; padding-left: 1rem; border: none;
   }
   .sb-nav--open .sb-mega-dropdown {
-    position: static; opacity: 0; visibility: hidden; transform: none;
-    min-width: unset; max-width: 100%; display: none;
+    position: static !important; left: auto !important; top: auto !important;
+    opacity: 0; visibility: hidden; transform: none !important;
+    min-width: unset !important; max-width: 100% !important; width: 100% !important;
+    display: none;
     grid-template-columns: 1fr; gap: 0.5rem;
-    box-shadow: none; border: none; padding: 0.5rem 0 0.5rem 1rem;
-    background: transparent;
+    box-shadow: none; border: none; padding: 0.5rem 0 0.5rem 0.5rem;
+    background: transparent; text-align: left; overflow: hidden;
+    box-sizing: border-box;
   }
   .sb-nav--open .sb-mega-dropdown.sb-mega--open {
     display: grid; opacity: 1; visibility: visible;
   }
   .sb-nav--open .sb-mega-col { padding: 0.5rem 0; }
   .sb-nav--open .sb-mega-label { font-size: 0.7rem; margin-bottom: 0.3rem; }
-  .sb-nav--open .sb-mega-links a { padding: 0.35rem 0; font-size: 0.95rem; }
+  .sb-nav--open .sb-mega-links a {
+    padding: 0.5rem 0; font-size: 0.95rem; display: flex; flex-direction: column; gap: 2px;
+  }
+  .sb-nav--open .sb-mega-links a strong { display: block; font-size: 0.95rem; color: var(--sb-navy); }
+  .sb-nav--open .sb-mega-links a small { display: block; font-size: 0.78rem; color: var(--sb-text-gray, #666); font-weight: 400; }
   .sb-nav--open .sb-mega-all { margin-top: 0.5rem; }
   .sb-nav--open .sb-nav-cta { margin: 1rem 0 0; text-align: center; justify-content: center; }
-  .sb-menu-toggle { display: block; }
+  .sb-menu-toggle { display: flex; }
+
+  /* ── Mobile: constrain ALL sections to viewport (100% not 100vw to avoid scrollbar width bug) ── */
+  .sb-hero, .sb-section,
+  .sb-usp-bar, .sb-section--dark, .sb-section--gray,
+  .sb-section--gradient, .sb-cta-section,
+  .is-layout-constrained .sb-hero,
+  .is-layout-constrained .sb-section,
+  .is-layout-constrained .sb-usp-bar,
+  .is-layout-constrained .sb-section--dark,
+  .is-layout-constrained .sb-section--gray,
+  .is-layout-constrained .sb-section--gradient,
+  .is-layout-constrained .sb-cta-section,
+  .is-layout-flow .sb-hero,
+  .is-layout-flow .sb-section,
+  .is-layout-flow > section,
+  section.sb-hero[style],
+  section.sb-section[style],
+  section[style*="overflow: hidden"],
+  section[style*="padding:"],
+  section[style*="padding: "] {
+    width: 100% !important; max-width: 100% !important;
+    margin-left: 0 !important; margin-right: 0 !important;
+    overflow-x: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Sections: force horizontal padding so content doesn't touch edges ── */
+  .sb-hero,
+  .is-layout-constrained .sb-hero,
+  section.sb-hero[style] {
+    padding: 2.5rem 1.25rem !important;
+  }
+  .sb-section[style*="padding:"],
+  .sb-section[style*="padding: "],
+  section[style*="padding: 80px"],
+  section[style*="padding: 90px"],
+  section[style*="padding: 100px"],
+  section[style*="padding:80px"],
+  section[style*="padding:90px"],
+  section[style*="padding:100px"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  /* ── Hero children: constrain to parent ── */
+  .sb-hero > *,
+  .sb-hero__container,
+  .sb-hero [style*="max-width"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+  .sb-hero h1,
+  .sb-hero [style*="font-size: clamp"] {
+    font-size: clamp(1.5rem, 7vw, 2.2rem) !important;
+  }
+
+  /* ── Inner containers: constrain with padding ── */
+  section [style*="max-width:"],
+  section [style*="max-width: "] {
+    max-width: 100% !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ── Post content: prevent wider-than-viewport ── */
+  .wp-block-post-content,
+  .entry-content,
+  .wp-site-blocks,
+  main.wp-block-group {
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  }
 
   .sb-grid { grid-template-columns: 1fr; gap: 2rem; }
   .sb-grid--reverse > *:first-child { order: 1; }
@@ -794,7 +884,8 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
 
 @media (max-width: 480px) {
   .sb-usp-bar { flex-direction: column; align-items: center; gap: 0.75rem; padding: 1rem; }
-  .sb-hero { padding: 2rem 1rem; }
+  .sb-hero { padding: 2rem 1rem !important; }
+  .sb-hero h1, .sb-hero [style*="font-size: clamp"] { font-size: 1.4rem !important; }
   .sb-hero__actions { flex-direction: column; }
   .sb-hero__actions .sb-btn { width: 100%; justify-content: center; }
   .sb-stats { grid-template-columns: 1fr; }
@@ -994,108 +1085,131 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
 
 /* --- Tablet: 769px – 1024px --- */
 @media (min-width: 769px) and (max-width: 1024px) {
-  /* 3-col fixed → 2-col */
   [style*="grid-template-columns:repeat(3,1fr)"],
   [style*="grid-template-columns: repeat(3, 1fr)"],
   [style*="grid-template-columns: repeat(3,1fr)"] {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  /* 4-col fixed → 2-col */
   [style*="grid-template-columns:repeat(4,1fr)"],
   [style*="grid-template-columns: repeat(4, 1fr)"],
   [style*="grid-template-columns: repeat(4,1fr)"] {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  /* 5-col fixed → 3-col */
   [style*="grid-template-columns:repeat(5,1fr)"],
   [style*="grid-template-columns: repeat(5, 1fr)"] {
     grid-template-columns: repeat(3, 1fr) !important;
   }
-  /* 2-col fixed stays 2-col on tablet — fine */
-  /* Large gaps down to medium */
-  [style*="gap:60px"] { gap: 2.5rem !important; }
-  [style*="gap: 60px"] { gap: 2.5rem !important; }
+  [style*="gap:60px"], [style*="gap: 60px"] { gap: 2.5rem !important; }
 }
 
 /* --- Mobile: ≤ 768px --- */
 @media (max-width: 768px) {
-  /* ── Inline Grid Overrides ── */
-  /* 2-col fixed → 1-col */
+
+  /* ── ALL inline grids → single column ── */
   [style*="grid-template-columns:1fr 1fr"],
   [style*="grid-template-columns: 1fr 1fr"],
   [style*="grid-template-columns:repeat(2,1fr)"],
   [style*="grid-template-columns: repeat(2, 1fr)"],
-  [style*="grid-template-columns: repeat(2,1fr)"] {
-    grid-template-columns: 1fr !important;
-  }
-  /* 3-col fixed → 1-col */
+  [style*="grid-template-columns: repeat(2,1fr)"],
   [style*="grid-template-columns:repeat(3,1fr)"],
   [style*="grid-template-columns: repeat(3, 1fr)"],
-  [style*="grid-template-columns: repeat(3,1fr)"] {
+  [style*="grid-template-columns: repeat(3,1fr)"],
+  [style*="grid-template-columns:repeat(5,1fr)"],
+  [style*="grid-template-columns: repeat(5, 1fr)"] {
     grid-template-columns: 1fr !important;
   }
-  /* 4-col fixed → 2-col */
+  /* 4-col → 2-col on mobile (1-col on small mobile below) */
   [style*="grid-template-columns:repeat(4,1fr)"],
   [style*="grid-template-columns: repeat(4, 1fr)"],
   [style*="grid-template-columns: repeat(4,1fr)"] {
     grid-template-columns: repeat(2, 1fr) !important;
   }
-  /* 5-col fixed → 1-col */
-  [style*="grid-template-columns:repeat(5,1fr)"],
-  [style*="grid-template-columns: repeat(5, 1fr)"] {
-    grid-template-columns: 1fr !important;
-  }
 
-  /* ── Hide Step Arrows (→) between steps ── */
-  [style*="position:absolute"][style*="right:-18px"][style*="top:36px"] {
-    display: none !important;
-  }
-  /* ── Hide Connecting Lines between steps ── */
-  [style*="position:absolute"][style*="height:3px"][style*="linear-gradient"] {
+  /* ── Hide step arrows and connecting lines ── */
+  [style*="position:absolute"][style*="right:-18px"],
+  [style*="position:absolute"][style*="right: -18px"],
+  [style*="position:absolute"][style*="height:3px"],
+  [style*="position:absolute"][style*="height: 3px"] {
     display: none !important;
   }
 
-  /* ── Reduce large section gaps ── */
-  [style*="gap:60px"] { gap: 2rem !important; }
-  [style*="gap: 60px"] { gap: 2rem !important; }
-  [style*="gap:48px"] { gap: 1.5rem !important; }
-  [style*="gap: 48px"] { gap: 1.5rem !important; }
-  [style*="gap:56px"] { gap: 1.5rem !important; }
-  [style*="gap: 56px"] { gap: 1.5rem !important; }
+  /* ── Grid border decorations (drone AI section etc.) ── */
+  [style*="border-right: 2px solid"],
+  [style*="border-right:2px solid"] {
+    border-right: none !important;
+  }
 
-  /* ── Service page section padding ── */
-  section[style*="padding:80px"] { padding: 3rem 1rem !important; }
-  section[style*="padding: 80px"] { padding: 3rem 1rem !important; }
-  section[style*="padding:100px"] { padding: 3.5rem 1rem !important; }
-  section[style*="padding: 100px"] { padding: 3.5rem 1rem !important; }
-  section[style*="padding:70px"] { padding: 2.5rem 1rem !important; }
-  section[style*="padding: 70px"] { padding: 2.5rem 1rem !important; }
+  /* ── Section padding: add horizontal padding to all service sections ── */
+  section[style*="padding:80px"],  section[style*="padding: 80px"]  { padding: 3rem 1.25rem !important; }
+  section[style*="padding:100px"], section[style*="padding: 100px"] { padding: 3rem 1.25rem !important; }
+  section[style*="padding:90px"],  section[style*="padding: 90px"]  { padding: 3rem 1.25rem !important; }
+  section[style*="padding:70px"],  section[style*="padding: 70px"]  { padding: 2.5rem 1.25rem !important; }
 
-  /* ── Service page inner containers ── */
-  [style*="max-width:1100px"] { padding-left: 1rem !important; padding-right: 1rem !important; }
-  [style*="max-width: 1100px"] { padding-left: 1rem !important; padding-right: 1rem !important; }
-  [style*="max-width:1000px"] { padding-left: 1rem !important; padding-right: 1rem !important; }
-  [style*="max-width: 1000px"] { padding-left: 1rem !important; padding-right: 1rem !important; }
+  /* ── Inner containers: width + padding ── */
+  [style*="max-width:1100px"], [style*="max-width: 1100px"],
+  [style*="max-width:1000px"], [style*="max-width: 1000px"],
+  [style*="max-width:900px"],  [style*="max-width: 900px"],
+  [style*="max-width:800px"],  [style*="max-width: 800px"],
+  [style*="max-width:750px"],  [style*="max-width: 750px"] {
+    max-width: 100% !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    box-sizing: border-box !important;
+  }
 
-  /* ── Large headings on service pages ── */
-  [style*="font-size:2.2rem"] { font-size: 1.5rem !important; }
-  [style*="font-size: 2.2rem"] { font-size: 1.5rem !important; }
-  [style*="font-size:2.1rem"] { font-size: 1.5rem !important; }
-  [style*="font-size: 2.1rem"] { font-size: 1.5rem !important; }
-  [style*="font-size:2rem"] { font-size: 1.4rem !important; }
-  [style*="font-size: 2rem"] { font-size: 1.4rem !important; }
+  /* ── Reduce large gaps everywhere ── */
+  [style*="gap:60px"], [style*="gap: 60px"] { gap: 1.5rem !important; }
+  [style*="gap:56px"], [style*="gap: 56px"] { gap: 1.5rem !important; }
+  [style*="gap:50px"], [style*="gap: 50px"] { gap: 1.25rem !important; }
+  [style*="gap:48px"], [style*="gap: 48px"] { gap: 1.25rem !important; }
+  [style*="gap:45px"], [style*="gap: 45px"] { gap: 1.25rem !important; }
+  [style*="gap:40px"], [style*="gap: 40px"] { gap: 1.25rem !important; }
+  [style*="gap:32px"], [style*="gap: 32px"] { gap: 1rem !important; }
+  [style*="gap:30px"], [style*="gap: 30px"] { gap: 1rem !important; }
+  [style*="gap:25px"], [style*="gap: 25px"] { gap: 1rem !important; }
 
-  /* ── Flex containers with large gaps ── */
-  [style*="display:flex"][style*="gap:32px"] { gap: 1.25rem !important; }
-  [style*="display:flex"][style*="gap: 32px"] { gap: 1.25rem !important; }
+  /* ── Large headings scale down ── */
+  [style*="font-size:2.2rem"], [style*="font-size: 2.2rem"],
+  [style*="font-size:2.1rem"], [style*="font-size: 2.1rem"] {
+    font-size: 1.5rem !important;
+  }
+  [style*="font-size:2rem"],   [style*="font-size: 2rem"] {
+    font-size: 1.35rem !important;
+  }
+  [style*="font-size:1.3rem"], [style*="font-size: 1.3rem"] {
+    font-size: 1.05rem !important;
+  }
+
+  /* ── Flex containers: wrap on mobile ── */
+  [style*="display:flex"][style*="gap:32px"],
+  [style*="display:flex"][style*="gap: 32px"],
+  [style*="display: flex"][style*="gap:32px"],
+  [style*="display: flex"][style*="gap: 32px"] {
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+
+  /* ── Inline images: prevent overflow ── */
+  img[style*="width:"], img[style*="width: "] {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* ── Tables: horizontal scroll ── */
+  table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
 
 /* --- Small Mobile: ≤ 480px --- */
 @media (max-width: 480px) {
-  /* 4-col → 1-col on smallest screens */
   [style*="grid-template-columns:repeat(4,1fr)"],
   [style*="grid-template-columns: repeat(4, 1fr)"],
   [style*="grid-template-columns: repeat(4,1fr)"] {
     grid-template-columns: 1fr !important;
+  }
+  /* Even smaller heading sizes */
+  [style*="font-size:2.2rem"], [style*="font-size: 2.2rem"],
+  [style*="font-size:2.1rem"], [style*="font-size: 2.1rem"],
+  [style*="font-size:2rem"],   [style*="font-size: 2rem"] {
+    font-size: 1.25rem !important;
   }
 }
