@@ -1,6 +1,6 @@
 # SignaalBewaking.nl Rebuild Plan
 
-## Status: IN PROGRESS (2026-02-18)
+## Status: IN PROGRESS (2026-02-19)
 
 ### Completed
 - [x] WordPress 6.9.1 install + MySQL DB (`signaalbewaking_tmp`)
@@ -8,7 +8,7 @@
 - [x] theme.json v3 (colors, typography, layout, custom templates)
 - [x] Full CSS with CSS variables (navy #0A2C3D + red #D00A2B)
 - [x] Header + Footer template parts (nav, dropdown, mobile toggle)
-- [x] Templates: index, page, front-page, 404
+- [x] Templates: index, page, front-page, 404, home (blog), single (post)
 - [x] All 11 pages created (Home, Diensten, 3 service detail, Over ons, Contact, Support, Aanmelden, Privacy, AV)
 - [x] Hero images downloaded from old site (4 images)
 - [x] Real logo from old site (PNG)
@@ -17,18 +17,19 @@
 - [x] GitHub repo: github.com/mwal073/signaalbewaking-nl
 - [x] Nginx preview on port 8088
 - [x] DB backup exported
+- [x] Blog templates: home.html (nieuwsoverzicht), single.html (artikel)
+- [x] Blog CSS: .sb-blog-card, .sb-blog-grid, .sb-article styling
 
-### TODO (prioriteit)
-1. **Pagina-content opschonen** — Alle pagina's consistent maken, hero's toevoegen, app-referenties verwijderen
-2. **Alle 11 diensten als losse pagina's** — Nu alleen Meldkamer/Alarm/Camera; nog 8 service pagina's nodig
-3. **Visuele polish** — Design op niveau smc-monitoring.com / particulieren.nvd.nl
-4. **Hero's full-width fixen** — CSS is toegevoegd, testen + verbeteren
-5. **Tekst-alignment** — Consistent uitlijning op alle pagina's
-6. **Contact Form 7 configureren** — Formulier op contactpagina
-7. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
-8. **WebP conversie** — Hero images + logo optimaliseren
-9. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
-10. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
+### VOLGENDE SESSIE (prioriteit)
+1. **Alle pagina-content professioneel herschrijven** — Consistente tone-of-voice, echte content (geen placeholder), SEO-geoptimaliseerd
+2. **9 ontbrekende dienst-pagina's** — Alarmverwerking, Persoonsalarmering, Alarmcentrale, IP-Kiezer, Teleservice, Remote FM, Open/Sluit, Toegangsbeheer, Live View
+3. **Design op competitor-niveau** — Referentie: smc-monitoring.com, particulieren.nvd.nl — hero's, spacing, beeldmateriaal, micro-animaties
+4. **Nieuws/blog sectie** — Categorieen aanmaken, 3-5 initiële SEO-artikelen, nav-integratie
+5. **Contact Form 7 configureren** — Formulier op contactpagina
+6. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
+7. **WebP conversie** — Hero images + logo optimaliseren
+8. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
+9. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
 
 ---
 
