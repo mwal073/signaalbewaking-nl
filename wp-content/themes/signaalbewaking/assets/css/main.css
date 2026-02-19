@@ -826,6 +826,12 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
 
   /* Why cards → 1 col */
   .sb-why-grid { grid-template-columns: 1fr !important; }
+
+  /* Unique grid → 1 col */
+  .sb-unique-grid { grid-template-columns: 1fr !important; }
+
+  /* Onboarding 4-step → 2x2 */
+  .sb-onboarding-grid { grid-template-columns: repeat(2, 1fr) !important; }
 }
 
 /* --- Homepage Inline Override Helpers --- */
