@@ -223,7 +223,7 @@ main.wp-block-group > .wp-block-query { max-width: none !important; margin-left:
 
 /* --- Hero Section --- */
 .sb-hero {
-  position: relative; min-height: clamp(55vh, 65vw, 80vh);
+  position: relative; min-height: clamp(60vh, 70vw, 85vh);
   display: flex; align-items: center;
   padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 4vw, 3rem);
   margin-top: 80px; overflow: hidden;
@@ -232,7 +232,7 @@ main.wp-block-group > .wp-block-query { max-width: none !important; margin-left:
 .sb-hero--tall { min-height: clamp(70vh, 80vw, 90vh); }
 .sb-hero__bg {
   position: absolute; inset: 0; z-index: 0;
-  background-size: cover; background-position: center;
+  background-size: cover; background-position: center 25%;
 }
 .sb-hero__bg::after {
   content: ''; position: absolute; inset: 0;
