@@ -45,18 +45,58 @@
   - Post content/wp-site-blocks: max-width:100% + overflow-x:hidden
 - [x] Alle 15+ pagina's gevalideerd op 375px viewport (Puppeteer)
 
-### VOLGENDE SESSIE (prioriteit)
-1. ~~**9 ontbrekende dienst-pagina's**~~ ✅ DONE
-2. ~~**Contact Form 7 configureren**~~ ✅ DONE
-3. ~~**Header nav uitbreiden**~~ ✅ DONE (mega dropdown)
-4. ~~**Mobiel menu + responsive issues**~~ ✅ DONE (v2.1.1)
-5. **Alle pagina-content professioneel herschrijven** — over-ons, support, contact nog nalopen
-6. **Design op competitor-niveau** — Referentie: smc-monitoring.com, particulieren.nvd.nl — hero's, spacing, beeldmateriaal, micro-animaties
-7. **Nieuws/blog sectie** — Categorieen aanmaken, 3-5 initiële SEO-artikelen, nav-integratie
-8. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
-9. **WebP conversie** — Hero images + logo optimaliseren
-10. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
-11. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
+### Recent voltooid (sessie 2026-02-20)
+- [x] Footer redesign: cert strip + brand bar + 4-kolom grid + social links
+- [x] Header mega-dropdown: strong/small beschrijvingen per dienst
+- [x] Mike van de Steeg / VDS Beveiligingen testimonial (homepage)
+- [x] JotForm tabbed formulieren op /aanmelden/ (alarm + camera)
+- [x] **App support pagina** (`/app-support/`, WP ID 159): registratie, download, rollen, functies, PDF
+- [x] PDF handleiding veiliggesteld op eigen site (`/wp-content/uploads/`)
+- [x] Support pagina: "Mijn SignaalBewaking" app-blok toegevoegd
+- [x] Homepage: Support knop naast App Store/Google Play
+- [x] Aanmelden: installateursportaal login-blok boven formulieren
+- [x] Footer: "App & Handleiding" link
+- [x] `sitemap.xml` (29 pagina's met prioriteiten)
+- [x] Logo vergroot (72px, scrolled 52px)
+
+### VOLGENDE SESSIE — PRIORITEIT 1: Live View pagina herschrijven
+
+**Probleem:** Onze huidige `/live-view/` pagina beschrijft het als "gericht videotoezicht op aanvraag" (evenementen, bouwplaatsen etc.). Dit klopt niet — dat is cameratoezicht. Live View is een specifieke politie-dienst.
+
+**Concurrent (Feenstra):** feenstra.com/huisbeveiliging/info/live-view/
+- Live View = ACN Live Service = politie-dienst
+- Bij alarm → alarmcentrale verbindt met camera's → centralist verifieert → beelden naar politiemeldkamer
+- Politie kijkt real-time mee → verhoogde heterdaadkracht
+- Privacy: alleen bij incidenten, Live View sticker bij ingang
+- Prijs: €11/mnd, min. 1 jaar
+- Simpele pagina, weinig visueel → makkelijk te overtreffen
+
+**Herschrijving plan `/live-view/`:**
+1. **Hero**: "Live View — Directe beeldverificatie bij alarm" (niet "op aanvraag")
+2. **Wat is Live View**: Uitleg dat bij alarm de meldkamer direct de camerabeelden opvraagt, verifieert en doorstuurt naar politie. ACN Live-koppeling.
+3. **Hoe werkt het** (stappenflow):
+   - Stap 1: Alarm gaat af → melding bij SignaalBewaking meldkamer
+   - Stap 2: Operator maakt verbinding met camera's op locatie
+   - Stap 3: Live beelden worden beoordeeld (echt alarm of loos alarm?)
+   - Stap 4: Bij bevestiging → beelden + info direct naar politiemeldkamer
+   - Stap 5: Politie ziet real-time situatie → snellere, gerichtere inzet
+4. **Voordelen**: Hogere heterdaadkracht, minder loos alarm, snellere politie-inzet, privacy-waarborg
+5. **Voor wie**: Bedrijven, winkels, particulieren met alarm + camera aangesloten op meldkamer
+6. **Verschil met cameratoezicht**: Live View = bij alarm, Cameratoezicht = continue monitoring
+7. **Privacy-sectie**: Alleen bij alarm, Live View sticker, geen continue opname
+8. **CTA**: Aanmelden / Contact
+
+**Design:** Beter dan Feenstra — visuele stappenflow, iconen, vergelijkingstabel, vertrouwensbadges.
+
+### VOLGENDE SESSIE — overig
+1. **Alle pagina-content professioneel herschrijven** — over-ons, support, contact nog nalopen
+2. **Design op competitor-niveau** — Referentie: smc-monitoring.com, particulieren.nvd.nl
+3. **Nieuws/blog sectie** — Categorieen aanmaken, 3-5 initiële SEO-artikelen
+4. **SEO meta titles/descriptions** — Via Yoast instellen per pagina
+5. **WebP conversie** — Hero images + logo optimaliseren
+6. **Live deployment** — Overzetten naar signaalbewaking.nl op Hostinger
+7. **301 redirects** — Oude URL's → nieuwe URL's (vooral /services/ → /diensten/)
+8. **Resterende 2 fake testimonials** vervangen door echte
 
 ---
 
