@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://signaalbewaking.nl/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://signaalbewaking.nl/diensten/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://signaalbewaking.nl/meldkamerdiensten/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://signaalbewaking.nl/alarmverwerking/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/alarmcentrale/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/persoonsalarmering/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/alarmopvolging/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://signaalbewaking.nl/cameratoezicht/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://signaalbewaking.nl/live-view/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/teleservice/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/remote-facility-management/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/open-sluitbegeleiding/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/toegangsbeheer/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/ip-kiezer/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/drone-beveiliging/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/whitelabel-meldkamer/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/tarieven/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/certificeringen/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/vrki-classificatie/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/offerte/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/over-ons/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/support/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://signaalbewaking.nl/app-support/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://signaalbewaking.nl/nieuws/</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://signaalbewaking.nl/aanmelden/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://signaalbewaking.nl/contact/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://signaalbewaking.nl/privacy/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://signaalbewaking.nl/algemene-voorwaarden/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://signaalbewaking.nl/voorwaarden-condities/</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>
