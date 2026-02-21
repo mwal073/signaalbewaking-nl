@@ -132,8 +132,8 @@ main.wp-block-group > .wp-block-query { max-width: none !important; margin-left:
   box-shadow: 0 4px 32px rgba(10,44,61,0.1);
   border-bottom-color: transparent;
 }
-.sb-logo { height: auto; max-height: 56px; width: auto; max-width: 240px; object-fit: contain; transition: var(--sb-transition); }
-.sb-header--scrolled .sb-logo { max-height: 44px; }
+.sb-logo { height: auto; max-height: 72px; width: auto; max-width: 280px; object-fit: contain; transition: var(--sb-transition); }
+.sb-header--scrolled .sb-logo { max-height: 52px; }
 
 /* --- Navigation --- */
 .sb-nav { display: flex; align-items: center; }
