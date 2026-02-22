@@ -1303,6 +1303,24 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
     flex-wrap: wrap !important;
   }
 
+  /* ── Comparison table: hide desktop grid, show mobile cards ── */
+  [data-desktop-comparison="true"] {
+    display: none !important;
+  }
+  [data-mobile-comparison="true"] {
+    display: block !important;
+  }
+
+  /* ── AKP icons: ensure enough text width ── */
+  [style*="1fr auto 1fr auto 1fr"] > div[style*="text-align:center"] {
+    padding: 0 8px !important;
+    max-width: 300px !important;
+  }
+  [style*="1fr auto 1fr auto 1fr"] > div[style*="text-align:center"] p {
+    hyphens: none !important;
+    word-break: normal !important;
+  }
+
   /* ── Voordelen cards: 2-col → 1-col ── */
   [style*="grid-template-columns:repeat(2,1fr)"],
   [style*="grid-template-columns: repeat(2,1fr)"],
