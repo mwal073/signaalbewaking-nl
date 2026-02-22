@@ -5,7 +5,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-define( 'SB_VERSION', '2.8.0' );
+define( 'SB_VERSION', '2.8.1' );
 define( 'SB_DIR', get_template_directory() );
 define( 'SB_URI', get_template_directory_uri() );
 
@@ -132,6 +132,14 @@ function sb_dequeue_global_styles() {
     wp_dequeue_style( 'classic-theme-styles' );
 }
 add_action( 'wp_enqueue_scripts', 'sb_dequeue_global_styles', 20 );
+
+/**
+ * Add 'js' class to <html> for progressive enhancement (animations only with JS)
+ */
+function sb_js_class() {
+    echo "<script>document.documentElement.classList.add('js')</script>\n";
+}
+add_action( 'wp_head', 'sb_js_class', 0 );
 
 /**
  * Preload hero image for LCP

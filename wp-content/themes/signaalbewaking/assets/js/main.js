@@ -188,5 +188,8 @@
       });
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
     animateEls.forEach(function(el) { observer.observe(el); });
+  } else {
+    // Fallback: show all immediately if no IntersectionObserver
+    animateEls.forEach(function(el) { el.classList.add('sb-visible'); });
   }
 })();

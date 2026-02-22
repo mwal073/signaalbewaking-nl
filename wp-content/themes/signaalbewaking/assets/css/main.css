@@ -109,8 +109,9 @@ main.wp-block-group > .wp-block-query { max-width: none !important; margin-left:
   50% { transform: translateY(-8px); }
 }
 
-.sb-animate { opacity: 0; transform: translateY(30px); transition: opacity .7s var(--sb-ease-out), transform .7s var(--sb-ease-out); }
-.sb-animate.sb-visible { opacity: 1; transform: translateY(0); }
+.sb-animate { transition: opacity .7s var(--sb-ease-out), transform .7s var(--sb-ease-out); }
+.js .sb-animate { opacity: 0; transform: translateY(30px); }
+.js .sb-animate.sb-visible, .sb-animate.sb-visible { opacity: 1; transform: translateY(0); }
 .sb-animate-delay-1 { transition-delay: .1s; }
 .sb-animate-delay-2 { transition-delay: .2s; }
 .sb-animate-delay-3 { transition-delay: .3s; }
