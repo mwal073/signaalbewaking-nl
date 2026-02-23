@@ -63,12 +63,12 @@
     </div>
   </div>
 
-  <!-- 4-Column Links Grid -->
+  <!-- 5-Column Links Grid (accordion on mobile) -->
   <div class="sb-footer__columns">
 
     <!-- Meldkamer diensten -->
-    <div>
-      <h4 class="sb-footer__heading">Meldkamer</h4>
+    <div class="sb-footer__col">
+      <h4 class="sb-footer__heading" onclick="this.parentElement.classList.toggle('sb-footer__col--open')">Meldkamer <svg class="sb-footer__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></h4>
       <ul class="sb-footer__links">
         <li><a href="/meldkamerdiensten/">Meldkamerdiensten</a></li>
         <li><a href="/alarmverwerking/">Alarmverwerking</a></li>
@@ -80,8 +80,8 @@
     </div>
 
     <!-- Remote Services -->
-    <div>
-      <h4 class="sb-footer__heading">Remote Services</h4>
+    <div class="sb-footer__col">
+      <h4 class="sb-footer__heading" onclick="this.parentElement.classList.toggle('sb-footer__col--open')">Remote Services <svg class="sb-footer__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></h4>
       <ul class="sb-footer__links">
         <li><a href="/teleservice/">Teleservice</a></li>
         <li><a href="/remote-facility-management/">Facility Management</a></li>
@@ -94,8 +94,8 @@
     </div>
 
     <!-- Installateurs -->
-    <div>
-      <h4 class="sb-footer__heading">Installateurs</h4>
+    <div class="sb-footer__col">
+      <h4 class="sb-footer__heading" onclick="this.parentElement.classList.toggle('sb-footer__col--open')">Installateurs <svg class="sb-footer__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></h4>
       <ul class="sb-footer__links">
         <li><a href="/whitelabel-meldkamer/">Meldkamer voor installateurs</a></li>
         <li><a href="/tarieven/">Tarieven</a></li>
@@ -107,8 +107,8 @@
     </div>
 
     <!-- Bedrijf -->
-    <div>
-      <h4 class="sb-footer__heading">Bedrijf</h4>
+    <div class="sb-footer__col">
+      <h4 class="sb-footer__heading" onclick="this.parentElement.classList.toggle('sb-footer__col--open')">Bedrijf <svg class="sb-footer__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></h4>
       <ul class="sb-footer__links">
         <li><a href="/over-ons/">Over ons</a></li>
         <li><a href="/diensten/">Alle diensten</a></li>
@@ -119,8 +119,8 @@
       </ul>
     </div>
 
-    <!-- Contact -->
-    <div>
+    <!-- Contact (altijd open op mobiel) -->
+    <div class="sb-footer__col sb-footer__col--always">
       <h4 class="sb-footer__heading">Contact</h4>
       <ul class="sb-footer__links">
         <li>Vendelier 71</li>

@@ -237,7 +237,7 @@ main.wp-block-group > .wp-block-query { max-width: none !important; margin-left:
   position: relative; min-height: clamp(70vh, 80vw, 90vh);
   display: flex; align-items: center;
   padding: clamp(4rem, 8vw, 6rem) clamp(1.5rem, 4vw, 3rem);
-  margin-top: 80px; overflow: hidden;
+  margin-top: 80px !important; overflow: hidden;
 }
 .sb-hero--short { min-height: clamp(45vh, 50vw, 55vh); }
 .sb-hero--tall { min-height: clamp(70vh, 80vw, 90vh); }
@@ -643,6 +643,9 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
 .sb-footer__bottom a { color: rgba(255,255,255,0.35); }
 .sb-footer__bottom a:hover { color: var(--sb-white); }
 
+/* Footer chevron: hidden on desktop */
+.sb-footer__chevron { display: none; }
+
 /* Social links */
 .sb-social { display: flex; gap: 12px; margin-top: 1.25rem; }
 .sb-social a {
@@ -680,7 +683,7 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .sb-header { height: 64px; padding: 0 1rem; }
-  .sb-hero { margin-top: 64px; min-height: 50vh; }
+  .sb-hero { margin-top: 64px !important; min-height: 50vh; }
   .sb-hero--short { min-height: 32vh; }
   .sb-hero__content { max-width: 100%; animation: fadeInUp .6s var(--sb-ease-out); }
   .sb-hero__title { font-size: clamp(1.75rem, 6vw, 2.4rem); }
@@ -933,9 +936,35 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
   .sb-cert-badge { padding: 0.4rem 0.6rem; font-size: 0.65rem; }
   .sb-cert-badge__icon svg { width: 14px; height: 14px; }
   .sb-cert-badge__label { font-size: 0.6rem; }
-  .sb-footer__columns { grid-template-columns: 1fr !important; gap: 1.25rem; }
+  .sb-footer__columns { grid-template-columns: 1fr !important; gap: 0; }
   .sb-footer__brand-bar { padding: 1rem; }
   .sb-footer__brand-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+
+  /* Footer accordion on mobile */
+  .sb-footer__col { border-bottom: 1px solid rgba(255,255,255,0.08); padding: 0; }
+  .sb-footer__heading {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.85rem 0; margin-bottom: 0; cursor: pointer; user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .sb-footer__chevron {
+    display: block; transition: transform .25s ease; flex-shrink: 0;
+    color: rgba(255,255,255,0.4);
+  }
+  .sb-footer__col .sb-footer__links,
+  .sb-footer__col > p,
+  .sb-footer__col > .sb-footer__hours { display: none; }
+  .sb-footer__col--open .sb-footer__links,
+  .sb-footer__col--open > p,
+  .sb-footer__col--open > .sb-footer__hours { display: block; padding-bottom: 0.75rem; }
+  .sb-footer__col--open .sb-footer__chevron { transform: rotate(180deg); }
+
+  /* Contact column always open */
+  .sb-footer__col--always .sb-footer__links,
+  .sb-footer__col--always > p,
+  .sb-footer__col--always > .sb-footer__hours { display: block; }
+  .sb-footer__col--always .sb-footer__heading { cursor: default; }
+  .sb-footer__col--always { border-bottom: none; padding-bottom: 0.5rem; }
 }
 
 /* Mobile: Stack hero flex layout, stats, innovatie, apps */
