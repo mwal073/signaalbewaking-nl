@@ -1399,6 +1399,21 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
     -webkit-hyphens: auto !important;
     hyphens: auto !important;
   }
+  /* ── Headings + buttons: never hyphenate ── */
+  h1, h2, h3, h4,
+  .sb-hero__title, .sb-hero__subtitle,
+  .sb-section__title, .sb-section__subtitle,
+  .sb-btn, a.sb-btn,
+  [style*="font-size:2rem"], [style*="font-size: 2rem"],
+  [style*="font-size:2.1rem"], [style*="font-size: 2.1rem"],
+  [style*="font-size:2.2rem"], [style*="font-size: 2.2rem"],
+  [style*="font-size:1.6rem"], [style*="font-size: 1.6rem"],
+  [style*="font-size:clamp"] {
+    -webkit-hyphens: none !important;
+    hyphens: none !important;
+    word-break: normal !important;
+    text-wrap: balance;
+  }
 
   /* ── Prevent page-level horizontal overflow ── */
   html, body {
