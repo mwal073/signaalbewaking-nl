@@ -1391,27 +1391,19 @@ details.sb-faq__item .sb-faq__answer { max-height: none; }
     grid-template-columns: 1fr !important;
   }
 
-  /* ── Force text wrapping everywhere ── */
+  /* ── Force text wrapping everywhere (no hyphens — only break on overflow) ── */
   section, section * {
     overflow-wrap: break-word !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
-    -webkit-hyphens: auto !important;
-    hyphens: auto !important;
   }
-  /* ── Headings + buttons: never hyphenate ── */
+  /* ── Headings: balanced line distribution ── */
   h1, h2, h3, h4,
-  .sb-hero__title, .sb-hero__subtitle,
-  .sb-section__title, .sb-section__subtitle,
-  .sb-btn, a.sb-btn,
+  .sb-hero__title, .sb-section__title,
   [style*="font-size:2rem"], [style*="font-size: 2rem"],
   [style*="font-size:2.1rem"], [style*="font-size: 2.1rem"],
   [style*="font-size:2.2rem"], [style*="font-size: 2.2rem"],
   [style*="font-size:1.6rem"], [style*="font-size: 1.6rem"],
   [style*="font-size:clamp"] {
-    -webkit-hyphens: none !important;
-    hyphens: none !important;
-    word-break: normal !important;
     text-wrap: balance;
   }
 
